@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, library_private_types_in_public_api
 
 import 'package:video_player/video_player.dart'
     show VideoPlayerController, VideoPlayer;
@@ -10,7 +10,8 @@ class VideoPlayerWidget extends StatefulWidget {
   final File file;
   final bool playVideo;
 
-  const VideoPlayerWidget({required this.file, this.playVideo = false});
+  const VideoPlayerWidget(
+      {super.key, required this.file, this.playVideo = false});
 
   @override
   _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
@@ -93,7 +94,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             child: VideoPlayer(_controller),
           ),
           if (_showPauseIcon)
-            Center(
+            const Center(
               child: Icon(
                 Icons.pause,
                 color: Colors.white,

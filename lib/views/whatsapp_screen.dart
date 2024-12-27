@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, library_private_types_in_public_api, use_build_context_synchronously
 
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:status_saver/views/video_player_widget.dart';
@@ -192,7 +192,7 @@ class _WhatsAppScreenState extends State<WhatsAppScreen>
         _loading = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: AwesomeSnackbarContent(
             title: 'Error',
             message: 'Failed to load statuses',
@@ -256,12 +256,11 @@ class _WhatsAppScreenState extends State<WhatsAppScreen>
 
   Widget _buildStatusItem(File file) {
     final extension = file.path.split('.').last.toLowerCase();
-    // Define the size of each item (both image and video)
-    final itemSize = 100.0;
+    const itemSize = 100.0;
     if (['jpg', 'jpeg', 'png'].contains(extension)) {
       // Image
       return Container(
-        decoration: BoxDecoration(color: Colors.black),
+        decoration: const BoxDecoration(color: Colors.black),
         width: itemSize,
         height: itemSize,
         child: Image.file(file, fit: BoxFit.cover),
@@ -279,7 +278,7 @@ class _WhatsAppScreenState extends State<WhatsAppScreen>
           preferredSize: Size.fromHeight(mediaQuery.size.height * 0.15),
           child: AppBar(
             backgroundColor: greenWithOpacity,
-            title: Text(
+            title: const Text(
               'Downloader',
               style: TextStyle(
                 fontFamily: 'custom',
@@ -296,7 +295,7 @@ class _WhatsAppScreenState extends State<WhatsAppScreen>
                 margin: const EdgeInsets.only(right: 12),
                 child: DropdownButton<String>(
                   value: _selectedWhatsApp,
-                  icon: Icon(Icons.arrow_drop_down, color: Colors.white),
+                  icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                   iconSize: 25,
                   elevation: 1,
                   style: const TextStyle(color: Colors.white),
@@ -349,7 +348,7 @@ class _WhatsAppScreenState extends State<WhatsAppScreen>
           ),
         ),
         body: _loading
-            ? Center(
+            ? const Center(
                 child: SpinKitCircle(
                   color: customGreen,
                   size: 50.0,
@@ -361,7 +360,8 @@ class _WhatsAppScreenState extends State<WhatsAppScreen>
                     children: [
                       // Images Tab
                       GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           crossAxisSpacing: 4.0,
                           mainAxisSpacing: 4.0,
@@ -446,7 +446,7 @@ class _VideoTabState extends State<VideoTab>
   Widget build(BuildContext context) {
     super.build(context);
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 4.0,
         mainAxisSpacing: 4.0,
@@ -474,7 +474,7 @@ class _VideoTabState extends State<VideoTab>
     return Container(
       height: 100,
       width: 100,
-      decoration: BoxDecoration(color: Colors.black),
+      decoration: const BoxDecoration(color: Colors.black),
       child: Stack(
         fit: StackFit.expand,
         children: [

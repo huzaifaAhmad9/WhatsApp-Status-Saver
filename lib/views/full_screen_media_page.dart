@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:status_saver/utilities/colors.dart';
@@ -8,7 +10,7 @@ import 'dart:io';
 class FullScreenMediaPage extends StatelessWidget {
   final File file;
 
-  const FullScreenMediaPage({required this.file});
+  const FullScreenMediaPage({super.key, required this.file});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class FullScreenMediaPage extends StatelessWidget {
           ],
         ),
         body: Container(
-          decoration: BoxDecoration(color: Colors.black),
+          decoration: const BoxDecoration(color: Colors.black),
           child: Center(
             child: isVideo
                 ? VideoPlayerWidget(file: file, playVideo: true)
@@ -53,7 +55,7 @@ class FullScreenMediaPage extends StatelessWidget {
     final result = await ImageGallerySaver.saveFile(file.path);
     if (result != null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: AwesomeSnackbarContent(
             title: 'Success',
             message: 'Download successful',
@@ -67,7 +69,7 @@ class FullScreenMediaPage extends StatelessWidget {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: AwesomeSnackbarContent(
             title: 'Error',
             message: 'Failed to save',

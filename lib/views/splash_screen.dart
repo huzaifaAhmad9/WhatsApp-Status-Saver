@@ -98,7 +98,7 @@ class _SplashScreenState extends State<SplashScreen>
             children: [
               ScaleTransition(
                 scale: _logoAnimation,
-                child: Container(
+                child: SizedBox(
                   height: screenHeight * 0.25,
                   width: screenWidth * 0.5,
                   child: const Center(
